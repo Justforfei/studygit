@@ -91,3 +91,19 @@ Git的版本库里存了很多东西，其中最重要的就是称为stage（或
 
 //总结
 现在，你又理解了Git是如何跟踪修改的，每次修改，如果不add到暂存区，那就不会加入到commit中。
+
+你可以发现，Git会告诉你，git checkout -- file可以丢弃工作区的修改：
+
+$ git checkout -- readme.txt
+命令git checkout -- readme.txt意思就是，把readme.txt文件在工作区的修改全部撤销，这里有两种情况：
+
+一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+
+一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+
+总之，就是让这个文件回到最近一次git commit或git add时的状态。
+
+git checkout -- file命令中的--很重要，没有--，就变成了“创建一个新分支”的命令，我们在后面的分支管理中会再次遇到git checkout命令。
+
+
+git add到暂存区了：在commit之前，你发现了这个问题。用git status查看一下，修改只是添加到了暂存区，还没有提交：
