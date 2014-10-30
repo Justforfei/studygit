@@ -1,3 +1,4 @@
-This is my first git.
-I just take it for fun!
-Not serious!
+Git is a distributed version control system.
+Git is free software.
+
+add nothing
