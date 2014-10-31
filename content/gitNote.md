@@ -31,17 +31,18 @@ $ git commit -m "wrote a readme file"
 
 
 
-//总结
+//总结  添加问题以及提交
 --global参数，表示你这台机器上所有的Git仓库都会使用这个配置
 初始化一个Git仓库，使用git init命令。
 添加文件到Git仓库，分两步：
 第一步，使用命令git add <file> ，注意，可反复多次使用，添加多个文件；
 第二步，使用命令git commit，完成。
 
+
 git status命令可以让我们时刻掌握仓库当前的状态，上面的命令告诉我们，readme.txt被修改过了，但还没有准备提交的修改。
 git diff顾名思义就是查看difference，显示的格式正是Unix通用的diff格式，可以从上面的命令输出看到，我们在第一行添加了一个“distributed”单词。
-
-//总结
+ 
+//总结 文件状态
 要随时掌握工作区的状态，使用git status命令。
 如果git status告诉你有文件被修改过，用git diff可以查看修改内容。
 
@@ -70,7 +71,7 @@ git-head-move
 
 Git提供了一个命令git reflog用来记录你的每一次命令：
 
-//总结
+//总结 回退到摸个版本
 HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset --hard commit_id。
 git log命令查看文件更新历史记录//$ git log --pretty=oneline
 git reflog用来记录你的每一次命令
@@ -89,10 +90,11 @@ Git的版本库里存了很多东西，其中最重要的就是称为stage（或
 
 为什么Git比其他版本控制系统设计得优秀，因为Git跟踪并管理的是修改，而非文件。
 
-//总结
+//总结 git暂存原理
 现在，你又理解了Git是如何跟踪修改的，每次修改，如果不add到暂存区，那就不会加入到commit中。
 
-你可以发现，Git会告诉你，git checkout -- file可以丢弃工作区的修改：
+
+你可以发现，Git会告诉你，git checkout -- file 可以丢弃工作区的修改：
 
 $ git checkout -- readme.txt
 命令git checkout -- readme.txt意思就是，把readme.txt文件在工作区的修改全部撤销，这里有两种情况：
@@ -107,3 +109,24 @@ git checkout -- file命令中的--很重要，没有--，就变成了“创建�
 
 
 git add到暂存区了：在commit之前，你发现了这个问题。用git status查看一下，修改只是添加到了暂存区，还没有提交：
+
+用命令git reset HEAD file可以把暂存区的修改撤销掉（unstage），重新放回工作区
+$ git reset HEAD readme.txt
+
+命令git checkout -- readme.txt意思就是，把readme.txt文件在工作区的修改全部撤销，这里有两种情况：
+
+一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+
+一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+
+//总结 文件撤销修改
+git checkout -- readme.txt 把readme.txt文件在工作区的修改全部撤销
+git reset HEAD file 可以把暂存区的修改撤销掉（unstage），重新放回工作区
+
+
+
+//总结 文件删除
+
+go on  review
+
+
